@@ -18,10 +18,10 @@ def fetch_data():
         if len(data) < 2:
             continue
 
-        today = data.iloc[-1]
-        yesterday = data.iloc[-2]
+        today_close = float(data["Close"].iloc[-1])
+        yesterday_close = float(data["Close"].iloc[-2])
 
-        change_pct = (today["Close"] - yesterday["Close"]) / yesterday["Close"] * 100
+        change_pct = (today_close - yesterday_close) / yesterday_close * 100
 
         results.append({
             "Index": name,
